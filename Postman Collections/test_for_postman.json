@@ -4,5 +4,32 @@
 		"name": "test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
-	"item": []
+	"item": [
+		{
+			"name": "test1",
+			"id": "9ddf7131-0575-4e85-ae72-973972c633b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/test1"
+			},
+			"response": []
+		},
+		{
+			"name": "test2",
+			"id": "c64b3755-d513-419f-904b-35f701c73643",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/test2"
+			},
+			"response": []
+		}
+	]
 }
