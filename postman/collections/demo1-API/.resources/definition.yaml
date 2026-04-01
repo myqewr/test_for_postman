@@ -1,0 +1,8 @@
+$kind: collection
+name: demo1 API
+description: API collection for the demo1 Spring Boot application
+variables:
+  - key: baseUrl
+    value: 'http://localhost:8080'
+    type: default
+    enabled: true

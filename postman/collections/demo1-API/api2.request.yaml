@@ -1,0 +1,31 @@
+$kind: http-request
+name: api2
+method: POST
+url: '{{baseUrl}}/api2'
+description: 'Accepts a JSON body with name and age, and returns them as passedName and passedAge.'
+body:
+  type: json
+  content: |-
+    {
+      "name": "John",
+      "age": "30"
+    }
+order: 2000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+      pm.test("Response body is valid JSON", function () {
+          pm.response.to.be.json;
+      });
+      pm.test("Response body has passedName field", function () {
+          var jsonData = pm.response.json();
+          pm.expect(jsonData).to.have.property("passedName");
+      });
+      pm.test("Response body has passedAge field", function () {
+          var jsonData = pm.response.json();
+          pm.expect(jsonData).to.have.property("passedAge");
+      });

@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: demo1 API
+  version: 1.0.0
+  description: API specification for the demo1 Spring Boot application
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+paths:
+  /api1:
+    get:
+      summary: api1
+      description: Returns the string "api1"
+      operationId: api1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: api1
+  /api2:
+    post:
+      summary: api2
+      description: Accepts a JSON body with name and age, and returns them as passedName and passedAge.
+      operationId: api2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody1'
+            example:
+              name: John
+              age: "30"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBody1'
+              example:
+                passedName: John
+                passedAge: "30"
+components:
+  schemas:
+    RequestBody1:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the person
+        age:
+          type: string
+          description: The age of the person
+      required:
+        - name
+        - age
+    ResponseBody1:
+      type: object
+      properties:
+        passedName:
+          type: string
+          description: The name passed in the request
+        passedAge:
+          type: string
+          description: The age passed in the request

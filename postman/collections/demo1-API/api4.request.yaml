@@ -1,0 +1,5 @@
+$kind: http-request
+name: api4
+url: "{{baseUrl}}/v1/test4"
+method: GET
+order: 2133620649100842

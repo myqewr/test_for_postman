@@ -1,0 +1,6 @@
+$kind: http-request
+name: api1
+method: GET
+url: '{{baseUrl}}/api1'
+description: Returns the string "api1"
+order: 1000
